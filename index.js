@@ -37,7 +37,7 @@ const loadData = (() => {
             return 0;
         })
         .forEach((line) => {
-            writeStream.write(`${line}\n\r`);
+            writeStream.write(`${line}\r\n`);
         });
 
     writeStream.end();
