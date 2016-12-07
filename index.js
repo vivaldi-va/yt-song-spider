@@ -28,6 +28,14 @@ const loadData = (() => {
     songNameArr
         .reduce((a,b) => a.concat(b))
         .filter(isUnique)
+        .sort((a, b) => {
+            const artistA = a.split(' - ')[0].toLowerCase();
+            const artistB = b.split(' - ')[0].toLowerCase();
+
+            if(artistA < artistB) return -1;
+            if(artistA > artistB) return 1;
+            return 0;
+        })
         .forEach((line) => {
             writeStream.write(`${line}\n\r`);
         });
