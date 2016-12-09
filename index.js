@@ -21,12 +21,11 @@ const loadData = (() => {
         .forEach((file) => {
             songNameArr = [
                 ...songNameArr,
-                extractSongNames(require(`./data/${file}`)),
+                ...extractSongNames(require(`./data/${file}`)),
             ];
         });
 
     songNameArr
-        .reduce((a,b) => a.concat(b))
         .filter(isUnique)
         .sort((a, b) => {
             const artistA = a.split(' - ')[0].toLowerCase();
