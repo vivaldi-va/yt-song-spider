@@ -27,6 +27,7 @@ const loadData = (() => {
 
     songNameArr
         .filter(isUnique)
+        .filter(song => song.split(' - ').length === 2)
         .sort((a, b) => {
             const artistA = a.split(' - ')[0].toLowerCase();
             const artistB = b.split(' - ')[0].toLowerCase();
